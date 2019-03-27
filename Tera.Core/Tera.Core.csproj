@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1849CABD-E702-4ED8-8B63-338F8B2F35CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tera.Core</RootNamespace>
+    <AssemblyName>Tera.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0-preview2-26406-04\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bits.cs" />
+    <Compile Include="Cryptography\PaddingCryptoTransform.cs" />
+    <Compile Include="Cryptography\TeraEncryptionHash.cs" />
+    <Compile Include="Cryptography\TeraEncryption.cs" />
+    <Compile Include="Cryptography\TeraEncryptionKeys.cs" />
+    <Compile Include="Cryptography\TeraEncryptionSession.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Game\Angle.cs" />
+    <Compile Include="Game\Enumerations.cs" />
+    <Compile Include="Helpers\AssemblyHelper.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Internals\ArrayExtensions.cs" />
+    <Compile Include="Internals\StringExtensions.cs" />
+    <Compile Include="IO\TeraBinaryReader.cs" />
+    <Compile Include="IO\TeraBinaryWriter.cs" />
+    <Compile Include="Marshaling\LocalUnmanagedMemory.cs" />
+    <Compile Include="Marshaling\MarshalValue.cs" />
+    <Compile Include="Network\EncryptedPacket.cs" />
+    <Compile Include="Network\GameClient.cs" />
+    <Compile Include="Network\OpCodes\MessageTables.cs" />
+    <Compile Include="Network\OpCodes\OpCodeTable.cs" />
+    <Compile Include="Network\PacketDirection.cs" />
+    <Compile Include="Network\PacketRecorder.cs" />
+    <Compile Include="Network\Protocol\Packet.cs" />
+    <Compile Include="Network\Protocol\PacketBuffer.cs" />
+    <Compile Include="Network\Protocol\PacketProcessor.cs" />
+    <Compile Include="Network\Protocol\PacketReflectionInfo.cs" />
+    <Compile Include="Network\Protocol\PacketSerializer.cs" />
+    <Compile Include="Network\Protocol\Packets\C_CHAT.cs" />
+    <Compile Include="Network\Protocol\Packets\C_PLAYER_LOCATION.cs" />
+    <Compile Include="Network\Protocol\Packets\C_SHOW_INVEN.cs" />
+    <Compile Include="Network\Protocol\Packets\C_VIEW_INTER_PARTY_MATCH_BATTLEFIELD_LIST.cs" />
+    <Compile Include="Network\Protocol\Packets\S_LOAD_TOPO.cs" />
+    <Compile Include="Network\Protocol\RawPacket.cs" />
+    <Compile Include="Plugins\IPlugin.cs" />
+    <Compile Include="Plugins\PluginException.cs" />
+    <Compile Include="Plugins\PluginLoader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

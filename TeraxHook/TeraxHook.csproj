@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F0BCEA1-744B-4BD8-8C38-8374D9D74BF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TeraxHook</RootNamespace>
+    <AssemblyName>TeraxHook</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyHook, Version=2.7.6684.0, Culture=neutral, PublicKeyToken=4b580fca19d0b0c5, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyHook.2.7.6684\lib\net40\EasyHook.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PacketDotNet, Version=0.17.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PacketDotNet.0.17.0\lib\netstandard2.0\PacketDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="ShockUI">
+      <HintPath>..\..\..\..\VS Frameworks\ShockUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\FeaturesManager.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="DllMain.cs" />
+    <Compile Include="GUI\Controls\ExAngle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ExAngle.Designer.cs">
+      <DependentUpon>ExAngle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\ExControl.cs" />
+    <Compile Include="GUI\Controls\ExEnum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ExEnum.Designer.cs">
+      <DependentUpon>ExEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\ExTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ExTextBox.Designer.cs">
+      <DependentUpon>ExTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\ExUpDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ExUpDown.Designer.cs">
+      <DependentUpon>ExUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\ExVector3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ExVector3.Designer.cs">
+      <DependentUpon>ExVector3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\FieldInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\FieldInfoControl.Designer.cs">
+      <DependentUpon>FieldInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\SendDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\SendDataForm.Designer.cs">
+      <DependentUpon>SendDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\SendPacketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\SendPacketForm.Designer.cs">
+      <DependentUpon>SendPacketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\PacketInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\PacketInfoForm.Designer.cs">
+      <DependentUpon>PacketInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Tabs\TabPackets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Tabs\TabPackets.Designer.cs">
+      <DependentUpon>TabPackets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ParseExtensions.cs" />
+    <Compile Include="Helpers\ParseHelper.cs" />
+    <Compile Include="Internals\Extensions.cs" />
+    <Compile Include="Internals\HooksController.cs" />
+    <Compile Include="Internals\PacketController.cs" />
+    <Compile Include="Marshaling\MarshalCache.cs" />
+    <Compile Include="Memory\LocalMemory.cs" />
+    <Compile Include="Memory\LocalUnmanagedMemory.cs" />
+    <Compile Include="Memory\ModuleSnapshot.cs" />
+    <Compile Include="Memory\UnsafeMemoryExtensions.cs" />
+    <Compile Include="Native\Kernel32.cs" />
+    <Compile Include="Native\Structures.cs" />
+    <Compile Include="Native\Ws2_32.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServerInterface.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EasyHook32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EasyHook32Svc.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EasyHook64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EasyHook64Svc.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EasyLoad32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EasyLoad64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tera.Core\Tera.Core.csproj">
+      <Project>{1849cabd-e702-4ed8-8b63-338f8b2f35cf}</Project>
+      <Name>Tera.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUI\Controls\ExAngle.resx">
+      <DependentUpon>ExAngle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\ExEnum.resx">
+      <DependentUpon>ExEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\ExTextBox.resx">
+      <DependentUpon>ExTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\ExUpDown.resx">
+      <DependentUpon>ExUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\ExVector3.resx">
+      <DependentUpon>ExVector3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\FieldInfoControl.resx">
+      <DependentUpon>FieldInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\SendDataForm.resx">
+      <DependentUpon>SendDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\SendPacketForm.resx">
+      <DependentUpon>SendPacketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\PacketInfoForm.resx">
+      <DependentUpon>PacketInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Tabs\TabPackets.resx">
+      <DependentUpon>TabPackets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
